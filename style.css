@@ -68,10 +68,11 @@ button{
 .content{
     /*display: flex;*/
     grid-column: 1/4;
-    margin: 100px;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: white;
+    border: solid 2px #ac9eaa;
     /*justify-content: center;
     align-items: center;*/
     text-align: center;
@@ -81,7 +82,7 @@ button{
     /*width: 50%;*/
     grid-column: 1/4;
     /*padding: 30px;*/
-    margin: 100px;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /*margin: 0 auto;
@@ -97,8 +98,8 @@ button{
     grid-row: 1;
 }
 .mistake{
-    grid-column: 3;
-    grid-row: 1;
+    grid-column: 1;
+    grid-row: 2;
 }
 .viltigs{
     grid-column: 2;
@@ -137,14 +138,13 @@ button{
 #bilde{
     width: 40%;
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 1;
 }
 
 .padoms{
     grid-column: 3;
     grid-row: 3;
-    width: 80px;
-    height: 80px;
+    width: 40%;
     border-radius: 100px;
     outline: none;
     color: #858383;
@@ -168,11 +168,11 @@ button{
 
 .padoms-att{
     display: block;
-    width: 200px;
+    width: 40%;
     /*border-radius: 60%;*/
     grid-column: 3;
     grid-row: 3;
-    margin: 20px;
+    /* margin: 20px; */
 }
 /* .burti{
     display: inline-block;
