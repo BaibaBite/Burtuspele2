@@ -72,6 +72,53 @@
             <div class="content-title">
                 <h1>TU ZAUDĒJI!</h1>
                 <p class="zaud">TAVS REZULTĀTS IR: </p>
+                <p class="content-title">AIZPILDI ANKETU, JA VĒLIES REĢISTRĒT SAVU REZULTĀTU TOPĀ!</p>
+            </div>
+            <div class="forma">
+                <form method="post" action="/">
+                    <fieldset>
+                        <legend>REĢISTRĒTIES</legend>
+                        <div class="form-group">
+                            <!--Ievades logs teksta tipa ar nosaukumu vārds un parauginformāciju "Jūsu vārds"-->
+                            <lable for="input">JŪSU VĀRDS</lable>
+                            <input class="form-input" type="text" name="name" placeholder="vārda vietturis" id="input">
+                        </div>
+
+                        <div>
+                            <lable for="input">VECUMS</lable>
+                            <input type="number" min="3" max="99" id="vecums" class="tukss" value="3"/>
+                        </div>
+                
+                        <div class="form-group">
+                            NOVADS:
+                            <select id="regions" class="tukss">
+                                <option value="Vidzeme">VIDZEME</option>  
+                                <option value="Latgale">LATGALE</option>
+                                <option value="Zemgale">ZEMGALE</option> 
+                                <option value="Kurzeme">KURZEME</option>  
+                                <option value="Sēlija">SĒLIJA</option>   
+                            </select>
+                        </div>
+
+                        <div class="form-graup"><!--name="c-male" nosaka, ka var atzīmēt tikai vienu no laukiem, ja katram input savs nosaukums, tad varēs arzīmēr abus-->
+                            <lable for="male">PUISIS</lable>
+                                <input type="radio" name="c-male" id="male">
+                    
+                            <lable for="female">MEITENE</lable>
+                                <input type="radio" name="c-male" id="female">
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="rules">
+                            <lable for="rules">IZLASĪJU NOTEIKUMUS UN PIEKRĪTU!</lable>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="uzmini">SŪTĪT</button>
+                    <button type="reset" class="uzmini">NOTĪRĪT</button>
+                    <form action="atvertSadalu('spele')" method="GET">
+                        <button>Reload</button>
+                    </form>
+                    <button type="button" class="uzmini" onclick="atvertSadalu('spele')">SPĒLĒT VĒLREIZ</button>
+                </form>
             </div>
         </div>
         <div id="top" class="content nodala">

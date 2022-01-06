@@ -1,8 +1,10 @@
 /*krāsu palete: https://coolors.co/fbf8cc-fde4cf-ffcfd2-f1c0e8-cfbaf0-a3c4f3-90dbf4-8eecf5-98f5e1-b9fbc0 */
 body{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;*/
     background-attachment: fixed;
+    background-image: url("fons3.gif");
+    background-color: rgb(255, 255, 255);
     background-size: cover;
     background-position: center;
     margin:0;
@@ -14,17 +16,21 @@ body{
     color:#fff1e6;
 }
 .page{
-    grid-column: 1/4;
+    /* grid-column: 1/4;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; */
     width:auto;
     margin:20px auto;
     color:#fff1e6;
 }
 .Header{
-    grid-column: 1/4;
+    /* grid-column: 1/4; */
     padding: 20px;
-    background-color: #fde2e4;
+    background-color: #fde2e4c5;
+    box-shadow:0 0 5px 10px #fde2e4c5;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 9px;
 }
 .header-title{
     margin:0;
@@ -44,15 +50,19 @@ button{
     border: none;
     background: none;
 }
+/*navigācijas josla*/
 .nav{
     /*lai novietotu navigāciju loga apakšā
     position: fixed;
-    bottom: 0;*/
-    grid-column: 1/4;
+    bottom: 0;
+    grid-column: 1/4;*/
     text-align:center;
     overflow: hidden;
-    background-color:#fde2e4;
+    background-color:#796676;
+    width: 65%;
+    margin: auto;
 }
+/*navigācijas pogas katra atsevišķi*/
 .nav-link{
     display: inline-block;
     padding: 8px 12px;
@@ -61,8 +71,18 @@ button{
     font-weight: 600;
 }
 /*Pseido klase ietvaram*/
+/*kas notiek, kad novietots peles kursors uz pogas*/
 .nav-link:hover{
     /*background-color:#fde2e4;*/
+    color:#bee1e6;
+}
+.nav-link:hover:not(.active){
+    /*background-color:#fde2e4;*/
+    color:#bee1e6;
+}
+
+.nav-link:active{
+    background-color:#fde2e4;
     color:#bee1e6;
 }
 .content{
@@ -173,6 +193,13 @@ button{
     grid-column: 3;
     grid-row: 3;
     /* margin: 20px; */
+}
+.forma{
+    width: 500px;
+    padding: 20px;
+    margin: auto;
+}
+
 }
 /* .burti{
     display: inline-block;
