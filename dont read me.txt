@@ -1,0 +1,40 @@
+  	  newWord:"",
+      	  newImage:"",
+          viltigsVards:"",
+          gameContinue: true,
+          answered:[] //atlasa atrisinātos vārdus
+
+           },
+           methods:{
+           getRandomWord()
+           {
+                 if(this.allWords.length>0)//nosacījums pārtrauks darboties, kad visi vārdi būs atminēti
+            {
+                  let n=Math.floor(Math.random()*this.allWords.length);//pēc nejaušības principa ģenerē skaitli, lai izvēlētos vārdu no masīva
+                    
+                  this.newWord=this.allWords[n].title;// nejauši izvēlētā masīva indeksa vārds
+               this.newImage=this.allWords[n].img;// nejauši izvēlētā masīva indeksa attēls
+            this.allWords.splice(n,1);// noņem izvēlēto vārdu no apgabala, lai tas spēles laikā neatkārtojas
+
+                this.viltigsVards=this.scramble(this.newWord.split(""));//pārvērš nejauši izvēlētā indeksa vārdu par burtu masīvu un izpilda burtu secības sajaukšanas f-ciju
+
+
+        //         }
+        //         else
+        //         {
+        //             this.gameContinue=false;//Aptur spēli līdzko visi vārdi ir atrisināti
+        //         }
+        //     },
+        //     scramble(arr)
+        //     {
+        //         let viltigs=arr.sort();//sajauc burtus
+        //             viltigs=viltigs.reverse();//apgriež burtu pozīcijas
+        //         return viltigs.join("");//izvada apvienoto vārdu simbolu virkni
+
+        //     }
+        // },
+        // created()
+        // {
+        //     this.getRandomWord();
+        // }
+        // });

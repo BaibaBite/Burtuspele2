@@ -138,6 +138,7 @@ button{
     border: solid 2px #dfd5dd94;
     font-size: 16px;
     padding-left:25px;
+    display: none;
 }
 
 .uzmini:hover, input.padoms:hover{cursor: pointer;}/*peles kursora izskats*/

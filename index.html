@@ -163,6 +163,7 @@
         let n;//mainīgais burtu skaitam - paņem no lietotāja ievadītā input lauka
         let wordsN=[];//mazais masīvs, kurā atlasīti vārdi, kas atbilst lietotāja ievadītajam burtu skaitam
         let number;//mainīgais, kuram createWord piešķir nejauši izvēlētu mazā masīva indeksu
+        let iw;
 
         //vārdu masīvs
         const words=[
@@ -222,10 +223,11 @@
         //no lielā masīva (words) atlasa vārdus, kuru garums atbilst spēlētāja ievadītajam burtu skaitam
         function limenis(){
             wordsN=[]; //izveido mazo masīvu
-            for (let i=0; i<words.length; i++){//iet caur masīvu words
+            for (let iw=0; iw<words.length; iw++){//iet caur masīvu words
 
-                if (words[i].title.length==n){//ja words ieraksta garums vienāds ar lietotāja ievadīto burtu skaitu
-                    wordsN.push(words[i]);//ievieto mazajā masīvā no lielā masīva
+                if (words[iw].title.length==n){//ja words ieraksta garums vienāds ar lietotāja ievadīto burtu skaitu
+                    wordsN.push(words[iw]);//ievieto mazajā masīvā no lielā masīva
+                    console.log(words[iw]);
 
                 }
             }
@@ -234,12 +236,24 @@
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
-                n=document.getElementById("cik").value;//no input loga nolasa burtu skaitu
+                n=Number(document.getElementById("cik").value);//no input loga nolasa burtu skaitu
                 console.log(n);
-                limenis();//f-cija limenis izveido mazo masīvu ar vārdiem, kuru garums atbilst lietotjāja ievadītajam
-                console.log(wordsN[0]);
+                //pārbauda, ja spēle sākas no jauna, aktivizē funkciju limenis() un izveido mazo masīvu
+                if (btn.textContent=="SĀKT"){
+                    limenis();//f-cija limenis izveido mazo masīvu ar vārdiem, kuru garums atbilst lietotjāja ievadītajam
+                }
+                if (wordsN.length==0){
+                    n=n+1;
+
+                    //ja n==11, parāda apsveikuma logu  un atgriež n uz 3
+                    
+                    console.log(n+"*");
+                    limenis();
+                }
+                console.log(wordsN[iw]);
                 btn.textContent="MINĒT";//nomaina pogas teikstu no Sākt uz Minēt
                 document.getElementById("tukss").value="";//iztukšo input loga saturu
+                guess.style.display="block";//parāda input lauku, kurš spēles sākumā paslēbts - display: none;
                 newV=createWord();//mainīgajam newV tiek pēc nejaušības principa izvēlēts vārds
                 randomV=jumbkeWord(newV.split(""));//sajauc mainīgā newV piešķirtā vārda burtu secību
                 console.log(randomV);
@@ -256,19 +270,15 @@
                         console.log('correct');
                         game=false;
                         inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';//html <p class="vitigs"> izvada tekstu, ka pareizi
+                        guess.style.display="none";//paslēpj teksta ievades lauku
                         sc+=10;// pieskaita 10 punktus rezultātam
                         score.innerHTML=sc;//html tekstā aizvieto veco rezultātu ar jauno
 
 
-
-
                         //izdzēš no wordsN masīva number ar splice 
                         
-                        //     !!!!!!! P A P I L D I N Ā T ! ! !  !
-
-            
-            
-            
+                        wordsN.splice(number,1);
+                       
             
                         bilde.style.display="none";//paslēpj bildi
                         btn.innerHTML="TURPINĀT";//nomaina pogas tekstu
@@ -280,6 +290,7 @@
                         document.getElementById("tukss").value="";//izdzēš input loga saturu
                         btn.innerHTML='Vēlreiz';//nomaina pogas saturu
                         guess.value="";//nodzēš lietotāja iepriekš ievadīto vārdu
+                        document.getElementById("tukss").focus();
                         m+=1;//pieskaita 1 punktu pie kļūdām
                         mistake.innerHTML=m;//html tekstā aizvieto veco kļudu skaitu ar jauno
                         if (m==3){//ja kļūdu skaits vienāds ar 3
@@ -293,47 +304,7 @@
 
                 }
         })
-        //     newWord:"",
-        //     newImage:"",
-        //     viltigsVards:"",
-        //     gameContinue: true,
-        //     answered:[] //atlasa atrisinātos vārdus
 
-        //     },
-        //     methods:{
-        //     getRandomWord()
-        //     {
-        //         if(this.allWords.length>0)//nosacījums pārtrauks darboties, kad visi vārdi būs atminēti
-        //         {
-        //             let n=Math.floor(Math.random()*this.allWords.length);//pēc nejaušības principa ģenerē skaitli, lai izvēlētos vārdu no masīva
-                    
-        //             this.newWord=this.allWords[n].title;// nejauši izvēlētā masīva indeksa vārds
-        //             this.newImage=this.allWords[n].img;// nejauši izvēlētā masīva indeksa attēls
-
-        //             this.allWords.splice(n,1);// noņem izvēlēto vārdu no apgabala, lai tas spēles laikā neatkārtojas
-
-        //             this.viltigsVards=this.scramble(this.newWord.split(""));//pārvērš nejauši izvēlētā indeksa vārdu par burtu masīvu un izpilda burtu secības sajaukšanas f-ciju
-
-
-        //         }
-        //         else
-        //         {
-        //             this.gameContinue=false;//Aptur spēli līdzko visi vārdi ir atrisināti
-        //         }
-        //     },
-        //     scramble(arr)
-        //     {
-        //         let viltigs=arr.sort();//sajauc burtus
-        //             viltigs=viltigs.reverse();//apgriež burtu pozīcijas
-        //         return viltigs.join("");//izvada apvienoto vārdu simbolu virkni
-
-        //     }
-        // },
-        // created()
-        // {
-        //     this.getRandomWord();
-        // }
-        // });
     </script>
 </body>
 </html>
