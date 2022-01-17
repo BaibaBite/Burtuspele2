@@ -247,6 +247,7 @@
                 inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;//aizstāj html <p class="vitigs"> tekstu ar sajaukto vārdu
                 bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';//blokā <div class="bilde"> ievieto randoma attēlu
                 bilde.style.display="block";//parāda attēlu
+                document.getElementById("tukss").focus();
                 }
 
                 else{
@@ -285,6 +286,7 @@
                             console.log('ZAUDĒJI');
                             end=atvertSadalu('end');//atver bloku beigas un paslēpj spēles logu
                             zaudT.innerHTML='TAVS REZULTĀTS IR: <br/>'+ sc;//beigu logā parāda iegūto punktu skaitu
+                            document.getElementById("input").focus(); //novieto kursoru pirmajā formas laikā
 
                         }
                     }
