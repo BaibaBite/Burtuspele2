@@ -190,10 +190,10 @@ button{
 .padoms-att{
     display: block;
     width: 40%;
-    /*border-radius: 60%;*/
+    border-radius: 60%;
     grid-column: 3;
     grid-row: 3;
-    /* margin: 20px; */
+    margin: 20px;
 }
 .forma{
     width: 500px;
